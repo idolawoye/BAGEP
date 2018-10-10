@@ -9,4 +9,6 @@ All dependencies should be rightly installed on the path of the workstation or s
 * Mykrobe predictor https://github.com/iqbal-lab/Mykrobe-predictor
 * Snippy https://github.com/tseemann/snippy
 * IQ-TREE http://www.iqtree.org/
+* Snakemake
+* VCFtools
 ## Running TBpipeline
