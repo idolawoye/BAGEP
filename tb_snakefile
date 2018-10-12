@@ -7,7 +7,7 @@ rule all:
 
 rule config:
 	params:
-		ref = "ref.gb"
+		ref = "data/ref.gb"
 
 config = rules.config.params
 
