@@ -13,9 +13,9 @@ config = rules.config.params
 
 rule fastp:
 	input:
-		expand(["{id}_1.fastq.gz", "{id}_2.fastq.gz"],id=IDS)
+		expand(["data/{id}_1.fastq.gz", "data/{id}_2.fastq.gz"],id=IDS)
 	output:
-		["{id}_1.fastq.gz.fastp", "{id}_2.fastq.gz.fastp"]
+		["fastp/{id}_1.fastq.gz.fastp", "fastp/{id}_2.fastq.gz.fastp"]
 	message:
 		"Filtering fastQ files by trimming low quality reads using fastp"
 	shell:
@@ -23,7 +23,7 @@ rule fastp:
 
 rule snippy:
 	input:
-		expand(["{id}_1.fastq.gz.fastp", "{id}_2.fastq.gz.fastp"],id=IDS),
+		expand(["fastp/{id}_1.fastq.gz.fastp", "fastp/{id}_2.fastq.gz.fastp"],id=IDS),
 		ref = config.ref
 	output:
 		touch("{id}.snippy")
@@ -32,11 +32,11 @@ rule snippy:
 	message:
 		"Calling variants in sequences using snippy"
 	shell:
-		"snippy --outdir {params.prefix} --ref {input.ref} --pe1 {input[0]} --pe2 {input[1]}"
+		"snippy --outdir {params.prefix} --ref {input.ref} --R1 {input[0]} --R2 {input[1]}"
 
 rule mykrobe:
 	input:
-		expand(["{id}_1.fastq.gz.fastp", "{id}_2.fastq.gz.fastp"],id=IDS)
+		expand(["fastp/{id}_1.fastq.gz.fastp", "fastp/{id}_2.fastq.gz.fastp"],id=IDS)
 	output:
 		"mykrobe_out/{id}.json"
 	message:
