@@ -24,6 +24,8 @@ Trimmed files will be deposisted in the **fastp** folder and Antimicrobial predi
 Alignment of variant calls will be deposited in the **TBpipeline/** directory as `core.aln`, TAB and VCF reports are also generated.
 The phylogeny tree is constructed using the variant call alignment file, generating `core.aln.treefile` which can be visualised using any tree visualisation tool.
 
+After running the pipeline, you can remove unnecessary files that were created during the workflow by running `bash cleanup.sh` on the command line.
+
 ## References 
 1. Shifu Chen, Yanqing Zhou, Yaru Chen, Jia Gu (2018); fastp: an ultra-fast all-in-one FASTQ preprocessor, Bioinformatics, Volume 34, Issue 17, Pages i884–i890, https://doi.org/10.1093/bioinformatics/bty560
 2. L.-T. Nguyen, H.A. Schmidt, A. von Haeseler, B.Q. Minh (2015) IQ-TREE: A fast and effective stochastic algorithm for estimating maximum likelihood phylogenies.. Mol. Biol. Evol., 32:268-274. https://doi.org/10.1093/molbev/msu300
