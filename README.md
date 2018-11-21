@@ -21,8 +21,8 @@ All fastQ files **(paired end reads)** of *M.tuberculosis* should be saved in th
 
 Trimmed files will be deposisted in the **fastp** folder and Antimicrobial prediction results are ``.JSON`` files in **mykrobe_out/** folder. Individual variant calls with mutation sites and annotation of each sample will be deposited in the sample name directory. The JSON files can be converted to a tabular TSV format using the [json_to_tsv](https://github.com/idolawoye/TBpipeline/tree/master/mykrobe/json_to_tsv.py) script adopted from [Mykrobe Predictor](https://github.com/iqbal-lab/Mykrobe-predictor). To convert JSON files, simply run `snakemake -s json_to_tsv_snakemake` and all tabular AMR prediction results will be saved in the **tsv_out/** folder.
 
-Alignment of variant calls will be deposited in the **TBpipeline/** directory as `core.aln`, TAB and VCF reports are also generated.
-The phylogeny tree is constructed using the variant call alignment file, generating `core.aln.treefile` which can be visualised using any tree visualisation tool.
+Alignment of core genomes will be deposited in the **TBpipeline/** directory as `core.aln`, TAB and VCF reports are also generated.
+The phylogeny tree is constructed using the aligned core genomes, generating `core.aln.treefile` which can be visualised using any tree visualisation tool.
 
 After running the pipeline, you can remove unnecessary files that were created during the workflow by running `bash cleanup.sh` on the command line.
 
