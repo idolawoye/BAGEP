@@ -4,7 +4,7 @@ echo "Installing dependencies from bioconda..."
 echo "Installing Fastp"
 conda install -c bioconda fastp
 echo "Installing snippy"
-conda install -c bioconda snippy
+conda install -c conda-forge -c bioconda snippy
 echo "Installing mykrobe"
 conda install -c bioconda mykrobe
 echo "Installing snakemake"
