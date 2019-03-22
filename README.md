@@ -17,7 +17,7 @@ All dependencies should be rightly installed on the path of the workstation or s
 * Snakemake
 * VCFtools
 ## Running TBpipeline
-All fastQ files **(paired end reads)** of same bacterial species should be saved in a **fastq/** folder. The pipeline uses [Snakemake](https://snakemake.readthedocs.io/en/stable/index.html) to run the workflow by cleaning and trimming the files, calling variants, generating alignment files from the core and whole genome and constructing a phylogeny tree on either the core genome or whole genome using maximum likelihood. To run the pipeline, simply enter: `snakemake -s bagep --config ref = {users reference genome}` You can specify the number of cores to run the workflow by adding `-j` followed by the number of cores.
+All fastQ files **(paired end reads)** of same bacterial species should be saved in a **fastq/** folder. The pipeline uses [Snakemake](https://snakemake.readthedocs.io/en/stable/index.html) to run the workflow by cleaning and trimming the files, calling variants, generating alignment files from the core and whole genome and constructing a phylogeny tree on either the core genome or whole genome using maximum likelihood. To run the pipeline, simply enter: `snakemake -s bagep --config ref={users reference genome}` You can specify the number of cores to run the workflow by adding `-j` followed by the number of cores.
 
 Trimmed files will be deposisted in the **fastp** folder. A reference genome for mapping should be provided for the bacterial samples, either in .gbk or .fasta format.
 
