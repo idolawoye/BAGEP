@@ -1,0 +1,24 @@
+IDS, = glob_wildcards("{id}_pass_1.fastq.gz")
+
+rule all:
+  input:
+    expand("{id}_R1.fastq.gz", id=IDS),
+    expand("{id}_R2.fastq.gz", id=IDS)
+
+# Rename forward end reads of fastq files
+rule rename:
+  input:
+    ["{id}_pass_1.fastq.gz"]
+  output:
+    "{id}_R1.fastq.gz"
+  shell:
+    "mv {input} {output}"
+
+# Rename reverse end reads of fastq files
+rule rename2:
+  input: 
+    ["{id}_pass_2.fastq.gz"]
+  output:
+    "{id}_R2.fastq.gz"
+  shell:
+    "mv {input} {output}"
