@@ -9,7 +9,7 @@ rule all:
 # Cleaning up fastq files    
 rule fastp:
 	input:
-		expand(["{id}_R1.fastq.gz", "{id}_R2.fastq.gz"],id=IDS)
+		["{id}_R1.fastq.gz", "{id}_R2.fastq.gz"]
 	output:
 		["{id}_R1.fastp", "{id}_R2.fastp"]
 	message:
