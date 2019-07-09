@@ -6,7 +6,7 @@ conda install -c bioconda fastp
 echo "Installing snippy"
 conda install -c conda-forge -c bioconda snippy
 echo "Installing snakemake"
-conda install -c bioconda snakemake
+conda install -c bioconda -c conda-forge snakemake
 echo "Installing IQ-TREE"
 conda install -c bioconda iqtree
 echo "Installing fasttree"
