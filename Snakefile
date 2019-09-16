@@ -63,10 +63,10 @@ rule move_files:
 # Building phylogeny
 rule tree:
   input:
-    "core.full.aln"
+    "core.aln"
   output:
     "tree.nwk"
   message:
     "Builing phylogeny tree of whole genomes using fastree"
   shell:
-    "fasttree -noboot results/{input} > {output}"
+    "iqtree -bb 1000 -s results/{input} > {output}"
