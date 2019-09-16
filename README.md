@@ -1,5 +1,6 @@
 # BAGEP
-Bacterial Genome Pipeline (BAGEP) is an automated workflow for downstream analysis of Whole genome sequencing of bacterial samples
+
+Bacterial Genome Pipeline (BAGEP) is an automated and scalable workflow for downstream analysis of Whole genome sequencing of bacterial samples
 ## Installation
 [BAGEP](https://github.com/idolawoye/BAGEP.git) is hosted on github. 
 Clone the pipeline with:
@@ -17,12 +18,12 @@ All dependencies should be rightly installed on the path of the workstation or s
 * Snakemake
 * VCFtools
 ## Running TBpipeline
-All fastQ files **(paired end reads)** of same bacterial species should be saved in a **fastq/** folder. The pipeline uses [Snakemake](https://snakemake.readthedocs.io/en/stable/index.html) to run the workflow by cleaning and trimming the files, calling variants, generating alignment files from the core and whole genome and constructing a phylogeny tree on either the core genome or whole genome using maximum likelihood. To run the pipeline, simply enter: `snakemake -s bagep --config ref={users reference genome}` You can specify the number of cores to run the workflow by adding `-j` followed by the number of cores.
+All fastQ files **(paired end reads)** of same bacterial species should be saved in a **fastq/** folder. The pipeline uses [Snakemake](https://snakemake.readthedocs.io/en/stable/index.html) to run the workflow by cleaning and trimming the files, calling variants, generating alignment files from the core and whole genome and constructing a phylogeny tree on either the core genome or whole genome using maximum likelihood. To run the pipeline, simply enter: `snakemake --config ref={users reference genome}` You can specify the number of cores to run the workflow by adding `-j` followed by the number of cores.
 
 Trimmed files will be deposisted in the **fastp** folder. A reference genome for mapping should be provided for the bacterial samples, either in .gbk or .fasta format.
 
 Alignment of core genomes will be deposited in the **results/** directory as `core.aln`, whole genome alignment in same directory as `core.full.aln` TAB and VCF reports are also generated. If you wish to inspect individual variant reports it will be deposited in a folder with the name of the sample as a sub directory in fastq
-The phylogeny tree is constructed using the aligned core/whole genomes (whole genomes bu default), generating `*.treefile` which can be visualised using any tree visualisation tool.
+The phylogeny tree is constructed using the aligned core/whole genomes (whole genomes by default), generating `*.treefile` which can be visualised using any tree visualisation tool.
 
 
 ## References 
