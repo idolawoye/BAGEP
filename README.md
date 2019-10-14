@@ -27,7 +27,7 @@ Alignment of core genomes will be deposited in the **results/** directory as `co
 The phylogeny tree is constructed using the aligned core/whole genomes (whole genomes by default), generating `*.treefile` which can be visualised using any tree visualisation tool.
 
 The SNP heatmap will generate an interative image in an HTML file named `heatmap_output.html`. An example is shown below
-![SNP heatmap](https://drive.google.com/file/d/1wzdbApGMk_3jVa350BheMTp7QfhG-XBO/view)
+![SNP heatmap](https://github.com/idolawoye/BAGEP/blob/master/data/Screenshot%20from%202019-10-14%2014-34-03.png)
 
 ## References 
 1. Shifu Chen, Yanqing Zhou, Yaru Chen, Jia Gu (2018); fastp: an ultra-fast all-in-one FASTQ preprocessor, Bioinformatics, Volume 34, Issue 17, Pages i884–i890, https://doi.org/10.1093/bioinformatics/bty560
