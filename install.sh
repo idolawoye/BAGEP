@@ -13,4 +13,6 @@ echo "Installing fasttree"
 conda install -c bioconda fasttree -y
 echo "Installing VCF tools"
 conda install -c bioconda vcftools -y
+echo "Installing R packages"
+Rscript -e 'install.packages("ggplot2", "vcfR", "heatmaply")
 echo "DONE."
