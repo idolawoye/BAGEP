@@ -4,7 +4,8 @@ IDS, = glob_wildcards("{id}_R1.fastq.gz")
 rule all:
   input:
     "tree.nwk",
-    "results/"
+    "results/",
+    "heatmap_output.html"
     
 # Cleaning up fastq files    
 rule fastp:
@@ -70,3 +71,14 @@ rule tree:
     "Builing phylogeny tree of whole genomes using fastree"
   shell:
     "iqtree -bb 1000 -s results/{input} > {output}"
+
+# Generating SNP Heatmap
+rule vcf_viewer:
+  input:
+    "core.vcf"
+  output:
+    touch("heatmap_output.html")
+  message:
+    "Generating SNP heatmap"
+  shell:
+    "Rscript vcf2heatmap.R {input}"
