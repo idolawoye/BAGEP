@@ -1,0 +1,8 @@
+name: bagep
+channels:
+  - bioconda
+dependencies:
+  - fastp=0.19.6
+  - snippy=4.4.3
+  - iqtree=1.6.11
+  - vcftools=0.1.15
