@@ -6,3 +6,4 @@ dependencies:
   - snippy=4.4.3
   - iqtree=1.6.11
   - vcftools=0.1.15
+  - snakemake=5.6.0
