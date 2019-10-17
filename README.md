@@ -7,7 +7,7 @@ Clone the pipeline with:
 
 `git clone https://github.com/idolawoye/BAGEP.git`
 
-The pipeline has only been tested to work on Linux OS - Ubuntu 16.04 and later versions. Earlier versions should work fine as long as the dependencies are properly installed. Ensure you have the [miniconda](https://conda.io/docs/user-guide/install/linux.html) package manager and [R version 3.4.4 installed](https://cran.r-project.org/bin/windows/base/old/3.4.4/).
+The pipeline has only been tested to work on Linux OS - Ubuntu 16.04 and later versions. Earlier versions should work fine as long as the dependencies are properly installed. Ensure you have the [miniconda](https://conda.io/docs/user-guide/install/linux.html) package manager and [R version 3.4.4](https://cran.r-project.org/bin/windows/base/old/3.4.4/) installed.
 The best way to install the pipeline with all it's dependencies is creating a conda environment. To do that, run:
 
 `conda env create -f bagep.yml`
