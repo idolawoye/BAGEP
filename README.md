@@ -38,6 +38,12 @@ All dependencies should be rightly installed on the path of the workstation or s
   - heatmaply
 
 ## Running TBpipeline
+Your paired end FASTQ files should have this format:
+``SampleName_R1.fastq.gz`` and ``SampleName_R2.fastq.gz``
+If they occur as ``SampleName_pass_1.fastq.gz`` and ``SampleName_pass_2.fastq.gz``
+You can rename them to the appropriate format by running:
+`snakemake -s rename.txt`
+
 All fastQ files **(paired end reads)** of same bacterial species should be saved in a **fastq/** folder. The pipeline uses [Snakemake](https://snakemake.readthedocs.io/en/stable/index.html) to run the workflow by cleaning and trimming the files, calling variants, generating alignment files from the core and whole genome and constructing a phylogeny tree on either the core genome or whole genome using maximum likelihood. To run the pipeline, simply enter:
 
 
