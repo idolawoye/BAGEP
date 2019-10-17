@@ -8,7 +8,22 @@ Clone the pipeline with:
 `git clone https://github.com/idolawoye/BAGEP.git`
 
 The pipeline has only been tested to work on Linux OS - Ubuntu 16.04 and later versions. Earlier versions should work fine as long as the dependencies are properly installed. Ensure you have the [miniconda](https://conda.io/docs/user-guide/install/linux.html) package manager and R installed.
-Once miniconda has been installed, run `bash install.sh` and follow on screen instructions.
+The best way to install the pipeline with all it's dependencies is creating a conda environment. To do that, run:
+
+`conda env create -f bagep.yml`
+
+To activate the pipeline environment:
+
+`conda activate bagep`
+
+To exit the environment:
+
+`conda deactivate`
+
+To install R packages, run:
+
+`./install.sh`
+
 ## Dependencies
 All dependencies should be rightly installed on the path of the workstation or server
 * Fastp 
@@ -17,6 +32,10 @@ All dependencies should be rightly installed on the path of the workstation or s
 * fasttree
 * Snakemake
 * VCFtools
+* R libraries for processing and visualisation
+  - vcfR
+  - ggplot2
+  - heatmaply
 
 ## Running TBpipeline
 All fastQ files **(paired end reads)** of same bacterial species should be saved in a **fastq/** folder. The pipeline uses [Snakemake](https://snakemake.readthedocs.io/en/stable/index.html) to run the workflow by cleaning and trimming the files, calling variants, generating alignment files from the core and whole genome and constructing a phylogeny tree on either the core genome or whole genome using maximum likelihood. To run the pipeline, simply enter: `snakemake --config ref={users reference genome}` You can specify the number of cores to run the workflow by adding `-j` followed by the number of cores.
