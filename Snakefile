@@ -3,7 +3,7 @@ IDS, = glob_wildcards("{id}_R1.fastq.gz")
 
 rule all:
   input:
-    "tree.nwk",
+    "iqtree.log",
     "results/",
     "heatmap_output.html"
     
@@ -66,7 +66,7 @@ rule tree:
   input:
     "core.aln"
   output:
-    "tree.nwk"
+    "iqtree.log"
   message:
     "Builing phylogeny tree of whole genomes using fastree"
   shell:
