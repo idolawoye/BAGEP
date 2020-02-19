@@ -37,7 +37,7 @@ rule snippy_core:
   input:
     expand("{id}.snippy", id=IDS)
   output:
-    touch("core.aln"), touch("core.full.aln")
+    touch("core.aln"), touch("core.vcf")
   message:
     "Aligning core and whole genomes into a multi fasta file"
   params:
