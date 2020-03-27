@@ -23,7 +23,7 @@ genotype[!rowSums(!is.finite(genotype)),]
 genotype[!is.finite(genotype)] <- 0
 
 heatmaply(genotype, colors = viridis(n = 256, alpha = 1, begin = 0, end = 1, option = 'viridis')
-          , xlab = 'Genomes', ylab = 'SNP position',
+          , limits = c(0,2), xlab = 'Genomes', ylab = 'SNP position',
           k_row = 1, k_col = 3, column_text_angle = 90, width = 500, height = 900,
           label_names = c("position", "sample", "SNP"), file = 'heatmap_output.html')
 noquote("DONE!")
