@@ -1,4 +1,5 @@
 # BAGEP
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3731118.svg)](https://doi.org/10.5281/zenodo.3731118)
 
 Bacterial Genome Pipeline (BAGEP) is an automated and scalable workflow for downstream analysis of Whole genome sequencing of bacterial samples. It also generates a graphical interactive heatmap for the visulisation of SNPs and their positions across the genome.
 ## Installation
