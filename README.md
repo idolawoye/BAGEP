@@ -39,6 +39,8 @@ All dependencies should be rightly installed on the path of the workstation or s
   - heatmaply
 
 ## Running TBpipeline
+Ensure that the BAGEP environment is active before running.
+
 Your paired end FASTQ files should have this format:
 ``SampleName_R1.fastq.gz`` and ``SampleName_R2.fastq.gz``
 If they occur as ``SampleName_pass_1.fastq.gz`` and ``SampleName_pass_2.fastq.gz``
