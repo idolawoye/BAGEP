@@ -1,0 +1,19 @@
+name: bagep
+channels:
+  - conda-forge
+  - r
+  - bioconda
+  - defaults
+dependencies:
+  - r-vcfr=1.10.0
+  - pandoc=2.10
+  - r-argaparse=2.0.1
+  - r-heatmaply=1.1.0
+  - python=3.6
+  - fastp=0.19.6
+  - snippy=4.4.3
+  - iqtree=1.6.11
+  - snakemake=5.6.0
+  - centrifuge=1.0.4_beta
+  - krona=2.7.1
+  - abricate=1.0.1
