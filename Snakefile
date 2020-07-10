@@ -1,10 +1,11 @@
 IDS, = glob_wildcards("{id}_R1.fastq.gz")
 
-
 rule all:
   input:
+    expand(["taxonomy/{id}.krona.html"], id=IDS),
     "iqtree.log",
     "results/",
+    "amr_output.tab",
     "heatmap_output.html"
     
 # Cleaning up fastq files    
@@ -12,16 +13,52 @@ rule fastp:
 	input:
 		["{id}_R1.fastq.gz", "{id}_R2.fastq.gz"]
 	output:
-		["{id}_R1.fastp", "{id}_R2.fastp"]
+		["fastp/{id}_R1.fastq.gz.fastp", "fastp/{id}_R2.fastq.gz.fastp"]
 	message:
 		"Filtering fastQ files by trimming low quality reads using fastp"
 	shell:
-		"fastp -i {input[0]} -I {input[1]} -o {output[0]} -O {output[1]} -j fastp/{input}.json -h fastp/{input}.html"
+		"fastp -i {input[0]} -I {input[1]} -o {output[0]} -O {output[1]}"
+
+# Taxonomic classification with Centrifuge
+rule centrifuge:
+  input:
+    rules.fastp.output[0], rules.fastp.output[1]
+  output:
+    "taxonomy/{id}-report.txt",
+    "taxonomy/{id}-result.txt"
+  message:
+    "Taxonomic classification of processed reads using centrifuge"
+  shell:
+    "centrifuge -p 4 -x $CENTRIFUGE_DEFAULT_DB -1 {input[0]} -2 {input[1]} --report-file {output[0]} -S {output[1]}"
+
+# Prepping centrifuge results
+rule prep_centrifuge_results:
+  input:
+    "taxonomy/{id}-result.txt"
+  output:
+    "taxonomy/{id}-results.krona"
+  message:
+    "Re-formatting centrifuge results"
+  shell:
+    "cat {input} | cut -f 1,3 > {output}"
+
+# Generating Krona plot
+rule krona_plot:
+  input:
+    rules.prep_centrifuge_results.output
+  output:
+    touch("taxonomy/{id}.krona.html")
+  message:
+    "Rendering krona plot visualization"
+  params:
+    prefix="{id}"
+  shell:
+    "ktImportTaxonomy -o taxonomy/{params.prefix}.krona.html {input}"
 
 # Vaiant call requires reference genome
 rule snippy:
   input:
-    ["{id}_R1.fastp", "{id}_R2.fastp"]
+    ["fastp/{id}_R1.fastq.gz.fastp", "fastp/{id}_R2.fastq.gz.fastp"]
   params:
     ref = config['ref']
   output:
@@ -37,7 +74,7 @@ rule snippy_core:
   input:
     expand("{id}.snippy", id=IDS)
   output:
-    touch("core.aln"), touch("core.vcf")
+    touch("core.aln"), touch("core.vcf"), touch("core.full.aln")
   message:
     "Aligning core and whole genomes into a multi fasta file"
   params:
@@ -60,6 +97,7 @@ rule move_files:
   run:
     shell("mv core* {output}")
     shell("rm fastq/*.snippy")
+    shell("rm -r taxonomy/fastq/*.files")
 
 # Building phylogeny
 rule tree:
@@ -68,9 +106,20 @@ rule tree:
   output:
     "iqtree.log"
   message:
-    "Builing phylogeny tree of whole genomes using fastree"
+    "Builing phylogeny tree of whole genomes using IQ-Tree"
   shell:
-    "iqtree -bb 1000 -s results/{input} > {output}"
+    "iqtree -s results/{input} -bb 1000 > {output}"
+
+# Screening genomes for antimicorbial resistance genes
+rule abricate:
+  input:
+    rules.snippy_core.output[2]
+  output:
+    "amr_output.tab"
+  message:
+    "Screening genomes for antimicorbial resistance genes"
+  shell:
+    "abricate results/{input} --quiet > {output}"
 
 # Generating SNP Heatmap
 rule vcf_viewer:
@@ -81,4 +130,4 @@ rule vcf_viewer:
   message:
     "Generating SNP heatmap"
   shell:
-    "Rscript vcf2heatmap.R {input}"
+    "Rscript data/vcf2heatmap.R results/{input}"
