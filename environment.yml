@@ -7,7 +7,7 @@ channels:
 dependencies:
   - r-vcfr=1.10.0
   - pandoc=2.10
-  - r-argaparse=2.0.1
+  - r-argparse=2.0.1
   - r-heatmaply=1.1.0
   - python=3.6
   - fastp=0.19.6
