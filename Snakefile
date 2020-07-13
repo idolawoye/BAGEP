@@ -67,7 +67,7 @@ rule snippy:
   message:
     "Calling variants using snippy"
   shell:
-    "snippy --force --outdir {output[0]} --ref {params.ref} --R1 {input[0]} --R2 {input[1]}"
+    "snippy --force --cleanup --outdir {output[0]} --ref {params.ref} --R1 {input[0]} --R2 {input[1]}"
 
 # Alignment of whole/core genomes requires reference genome
 rule snippy_core:
