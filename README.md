@@ -17,10 +17,6 @@ To activate the pipeline environment:
 
 `conda activate bagep`
 
-To exit the environment:
-
-`conda deactivate`
-
 ## Dependencies
 All dependencies should be rightly installed on the path of the workstation or server
 * Fastp 
@@ -38,14 +34,20 @@ All dependencies should be rightly installed on the path of the workstation or s
 Download and install Centrifuge database which is approximately 8 GB with the following steps
 
 `wget -c ftp://ftp.ccb.jhu.edu/pub/infphilo/centrifuge/data/p_compressed+h+v.tar.gz`
+
 `mkdir $HOME/centrifuge-db`
+
 `tar -C $HOME/centrifuge-db -zxvf p_compressed+h+v.tar.gz`
+
 `export CENTRIFUGE_DEFAULT_DB=$HOME/centrifuge-db/p_compressed+h+v`
 
 ### Setting up Krona Taxonomy Plot
 `rm -rf ~/miniconda3/envs/bagep/opt/krona/taxonomy`
+
 `mkdir -p ~/krona/taxonomy`
+
 `ln -s ~/krona/taxonomy/ ~/miniconda3/envs/bagep/opt/krona/taxonomy`
+
 `ktUpdateTaxonomy.sh ~/krona/taxonomy`
 
 ## Running TBpipeline
@@ -62,7 +64,9 @@ All fastQ files **(paired end reads)** of same bacterial species should be saved
 
 `snakemake --config ref={users reference genome}` 
 
-### Outputs
+### For Advanced users
+If you are familair working on Linux or MacOS terminal, you can edit the shell command in the **Snakefile** of the rule you want to customize. For example, to mask problematic positions in the genome when generating core alignment with **snippy-core**, add `--mask {BED file of sites to mask}` to the shell command of `rule snippy_core`. You can get full options by using the help command of the desired tool to customize.
+## Outputs
 #### Quality control
 Trimmed files will be deposisted in the **fastp** folder. A reference genome for mapping should be provided for the bacterial samples, either in .gbk or .fasta format.
 #### Taxonomic classification
@@ -75,6 +79,10 @@ The phylogeny tree is constructed using the aligned core/whole genomes (whole ge
 The SNP heatmap will generate an interative image in an HTML file named `heatmap_output.html`. An example is shown below
 ![SNP heatmap](https://github.com/idolawoye/BAGEP/blob/master/data/Screenshot%20from%202019-10-14%2014-34-03.png)
 ![krona_plot](https://github.com/idolawoye/BAGEP/blob/master/data/krona_plot.svg)
+
+To exit the environment:
+
+`conda deactivate`
 
 ## References 
 1. Shifu Chen, Yanqing Zhou, Yaru Chen, Jia Gu (2018); fastp: an ultra-fast all-in-one FASTQ preprocessor, Bioinformatics, Volume 34, Issue 17, Pages i884–i890, https://doi.org/10.1093/bioinformatics/bty560
