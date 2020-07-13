@@ -74,6 +74,7 @@ The phylogeny tree is constructed using the aligned core/whole genomes (whole ge
 #### Interactive visualization
 The SNP heatmap will generate an interative image in an HTML file named `heatmap_output.html`. An example is shown below
 ![SNP heatmap](https://github.com/idolawoye/BAGEP/blob/master/data/Screenshot%20from%202019-10-14%2014-34-03.png)
+![krona_plot](https://github.com/idolawoye/BAGEP/blob/master/data/krona_plot.svg)
 
 ## References 
 1. Shifu Chen, Yanqing Zhou, Yaru Chen, Jia Gu (2018); fastp: an ultra-fast all-in-one FASTQ preprocessor, Bioinformatics, Volume 34, Issue 17, Pages i884–i890, https://doi.org/10.1093/bioinformatics/bty560
@@ -83,3 +84,6 @@ The SNP heatmap will generate an interative image in an HTML file named `heatmap
 5. [Snippy](https://github.com/tseemann/snippy).
 6. Petr Danecek, Adam Auton, Goncalo Abecasis, Cornelis A. Albers, Eric Banks, Mark A. DePristo, Robert Handsaker, Gerton Lunter, Gabor Marth, Stephen T. Sherry, Gilean McVean, Richard Durbin and 1000 Genomes Project Analysis Group (2011). The Variant Call Format and VCFtools. Bioinformatics, Volume 27, Issue 15, Pages 2156 - 2158.
 7. Tal Galili, Alan O'Callaghan, Jonathan Sidi, Carson Sievert; heatmaply: an R package for creating interactive cluster heatmaps for online publishing. Bioinformatics, , btx657, https://doi.org/10.1093/bioinformatics/btx657
+8. Kim, D., Song, L., Breitwieser, F. P., & Salzberg, S. L. (2016). Centrifuge: rapid and sensitive classification of metagenomic sequences. Genome research, 26(12), 1721–1729. https://doi.org/10.1101/gr.210641.116
+9. Ondov, B.D., Bergman, N.H. & Phillippy, A.M. Interactive metagenomic visualization in a Web browser. BMC Bioinformatics 12, 385 (2011). https://doi.org/10.1186/1471-2105-12-385
+10. Seemann T, Abricate, Github https://github.com/tseemann/abricate
