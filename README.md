@@ -13,7 +13,7 @@ The best way to install the pipeline with all it's dependencies is creating a co
 
 `conda env create -f environment.yml`
 
-To activate the pipeline environment:
+#### Activate pipeline environment
 
 `conda activate bagep`
 
@@ -71,6 +71,8 @@ If you are familair working on Linux or MacOS terminal, you can edit the shell c
 Trimmed files will be deposisted in the **fastp** folder. A reference genome for mapping should be provided for the bacterial samples, either in .gbk or .fasta format.
 #### Taxonomic classification
 Taxonomic visualization of individual isolate is found in **taxonomy/fastq/**. HTML files show interactive Krona plot of taxonomic classification in sequencing reads. An example is shown below
+#### Antimicrobial resistance gene detection
+A TAB file named **amr_output** consisting of antimicrobial genes and coverage in the AMR database being used.
 #### Variant detection and Genome alignments
 Alignment of core genomes will be deposited in the **results/** directory as `core.aln`, whole genome alignment in same directory as `core.full.aln` TAB and VCF reports are also generated. If you wish to inspect individual variant reports it will be deposited in a folder with the name of the sample as a sub directory in fastq
 #### Phylogenetics
@@ -80,7 +82,7 @@ The SNP heatmap will generate an interative image in an HTML file named `heatmap
 ![SNP heatmap](https://github.com/idolawoye/BAGEP/blob/master/data/Screenshot%20from%202019-10-14%2014-34-03.png)
 ![krona_plot](https://github.com/idolawoye/BAGEP/blob/master/data/krona_plot.svg)
 
-To exit the environment:
+#### To exit the environment:
 
 `conda deactivate`
 
