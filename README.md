@@ -66,11 +66,15 @@ You can rename them to the appropriate format by running:
 
 All fastQ files **(paired end reads)** of same bacterial species should be saved in a **fastq/** folder. The pipeline uses [Snakemake](https://snakemake.readthedocs.io/en/stable/index.html) to run the workflow by cleaning and trimming the files, antimicrobial resistance gene detection, taxonomic classification, calling variants, generating alignment files from the core and whole genome and constructing a phylogeny tree on either the core genome or whole genome using maximum likelihood. To run the pipeline, simply enter:
 
-
 `snakemake --config ref={users reference genome}` 
 
 ### For Advanced users
-If you are familair working on Linux or MacOS terminal, you can edit the shell command in the **Snakefile** of the rule you want to customize. For example, to mask problematic positions in the genome when generating core alignment with **snippy-core**, add `--mask {BED file of sites to mask}` to the shell command of `rule snippy_core`. You can get full options by using the help command of the desired tool to customize.
+If you are familiar working on Linux, MacOS terminal or PowerShell, you can edit the shell command in the **Snakefile** in a text editor to change the parameters used in running particular steps. For example, to mask problematic positions such as repeats in the genome when generating core alignment with **snippy-core**, add `--mask {BED file of sites to mask}` to the shell command of `rule snippy_core`. Other steps such as Phylogenetics, Variant detection and AMR detection can be modified too. To view full options of an particular processing step, enter the name of the tool flagged with help. For example:
+
+`iqtree --help`
+
+Will list the options and parameters under IQ-TREE
+
 ## Outputs
 #### Quality control
 Trimmed files will be deposisted in the **fastp** folder. A reference genome for mapping should be provided for the bacterial samples, either in .gbk or .fasta format.
