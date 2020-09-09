@@ -119,7 +119,7 @@ rule abricate:
   message:
     "Screening genomes for antimicorbial resistance genes"
   shell:
-    "abricate results/{input} --quiet > {output}"
+    "abricate results/{input} > {output}"
 
 # Generating SNP Heatmap
 rule vcf_viewer:
