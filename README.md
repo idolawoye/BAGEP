@@ -95,6 +95,12 @@ The SNP heatmap will generate an interative image in an HTML file named `heatmap
 
 `conda deactivate`
 
+#### Citation
+If you used BAGEP for your analysis, kindly cite the pipeline:
+
+>Olawoye IB, Frost SDW, Happi CT. 2020. The Bacteria Genome Pipeline (BAGEP): an automated, scalable workflow for bacteria genomes with Snakemake. PeerJ 8:e10121 https://doi.org/10.7717/peerj.10121
+
+
 ## References 
 1. Shifu Chen, Yanqing Zhou, Yaru Chen, Jia Gu (2018); fastp: an ultra-fast all-in-one FASTQ preprocessor, Bioinformatics, Volume 34, Issue 17, Pages i884–i890, https://doi.org/10.1093/bioinformatics/bty560
 2. L.-T. Nguyen, H.A. Schmidt, A. von Haeseler, B.Q. Minh (2015) IQ-TREE: A fast and effective stochastic algorithm for estimating maximum likelihood phylogenies.. Mol. Biol. Evol., 32:268-274. https://doi.org/10.1093/molbev/msu300
