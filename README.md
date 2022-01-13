@@ -1,3 +1,4 @@
+![BAGEP_image](https://github.com/idolawoye/BAGEP/blob/master/data/bagep2.0.png)
 # BAGEP
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3731118.svg)](https://doi.org/10.5281/zenodo.3731118)
 
