@@ -56,7 +56,7 @@ Download and install Centrifuge database which is approximately 8 GB with the fo
 
 `ktUpdateTaxonomy.sh ~/krona/taxonomy`
 
-## Running TBpipeline
+## Running BAGEP
 Ensure that the BAGEP environment is active before running and that you have set Centrifuge's database to global locations on your PC and Kraken's taxonomy.
 
 Your paired end FASTQ files should have this format:
