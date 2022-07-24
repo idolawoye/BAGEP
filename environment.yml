@@ -11,9 +11,9 @@ dependencies:
   - r-heatmaply
   - python=3.6
   - fastp
-  - snippy=4.4.3
+  - snippy=4.6.0
   - iqtree
-  - snakemake=5.6.0
+  - snakemake=6.12.1
   - centrifuge
   - krona
   - abricate
